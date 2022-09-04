@@ -2,31 +2,52 @@ package com.vladimirorlov.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
+
+    private var classList = arrayListOf<ClassSelector>()
+    var adapter = RecyclerAdapter(classList)
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d("HackerU","onCreate")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setButtonClickListener()
     }
 
-    fun getMyName(): String {
-        var name: String = "Vladimir"
-        return name
-    }
 
-    fun onClick(view: View) {
-        val textView: TextView = findViewById<TextView>(R.id.hello_text)
-        val editTextCon = getEditText()
-        textView.text = "Hello ${editTextCon} Good to see you in Android Studio for first time!"
-    }
+    private fun setButtonClickListener() {
+        val button = findViewById<Button>(R.id.add_button)
+        val input = findViewById<EditText>(R.id.class_name_input)
 
-    fun getEditText(): String {
-        val editText: EditText = findViewById(R.id.edit_text_first)
-        return editText.text.toString()
+        button.setOnClickListener {
+
+            val radioGroup = findViewById<RadioGroup>(R.id.radioItemSelect)
+            val checkedId =  radioGroup.checkedRadioButtonId
+            adapter.notifyDataSetChanged()
+
+            if (input.text.isNullOrEmpty())
+                Toast.makeText(this, "Please enter a valid Input", Toast.LENGTH_SHORT).show()
+
+            else {
+                if (checkedId == -1)
+                    Toast.makeText(this,"Please select an image class!", Toast.LENGTH_SHORT).show()
+
+                when(checkedId) {
+                    R.id.radioButton1 -> classList.add(ClassSelector(input.text.toString(),R.drawable.dk))
+                    R.id.radioButton2 -> classList.add(ClassSelector(input.text.toString(),R.drawable.druid))
+                    R.id.radioButton3 -> classList.add(ClassSelector(input.text.toString(),R.drawable.mage))
+                }
+            }
+        }
+
+        createRecyclerView()
+    }
+    private fun createRecyclerView() {
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView.adapter = adapter
     }
 }
+
