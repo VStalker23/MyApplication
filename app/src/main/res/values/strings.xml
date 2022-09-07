@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">HackerUApp</string>
     <string name="add">Add</string>
-    <string name="class_to_add">Class to add</string>
+    <string name="class_name_to_add">Class name to add</string>
 </resources>
