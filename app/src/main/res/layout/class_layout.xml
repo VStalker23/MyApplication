@@ -20,14 +20,14 @@
         app:layout_goneMarginRight="10dp">
 
         <ImageView
-            android:id="@+id/item_image"
+            android:id="@+id/class_image"
             android:layout_width="9dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/dk" />
 
         <TextView
-            android:id="@+id/item_name"
+            android:id="@+id/class_name"
             android:layout_width="211dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"

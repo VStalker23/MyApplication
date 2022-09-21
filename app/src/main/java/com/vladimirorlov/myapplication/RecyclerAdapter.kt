@@ -33,7 +33,7 @@ class RecyclerAdapter(
 
         holder.imageView.setOnClickListener {
             val dialog: AlertDialog.Builder = AlertDialog.Builder(it.rootView.context)
-            val dialogView : View = LayoutInflater.from(it.rootView.context).inflate(R.layout.person_fragment, null)
+            val dialogView : View = LayoutInflater.from(it.rootView.context).inflate(R.layout.class_fragment, null)
 
             val dialogProfileImage: ImageView = dialogView.findViewById(R.id.fragment_class_image)
             val dialogProfileTitle: TextView = dialogView.findViewById(R.id.fragment_person_details)

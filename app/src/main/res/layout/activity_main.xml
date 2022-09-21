@@ -50,7 +50,7 @@ tools:context=".MainActivity">
     android:layout_height="50dp"
 
     android:autofillHints=""
-    android:hint="@string/item_to_add"
+    android:hint="@string/class_name_to_add"
 
     android:inputType="text"
     android:textAlignment="center"

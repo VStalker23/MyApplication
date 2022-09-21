@@ -6,7 +6,7 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.concurrent.thread
 
-
+// object = static like in java (live all time at app)
 class MainActivity : AppCompatActivity() {
 
     lateinit var repository: Repository
