@@ -7,15 +7,15 @@ import androidx.room.Insert
 import androidx.room.Query
 
 @Dao
-interface ClassDao {
+interface PeopleDao {
 
     @Insert
-    fun insertClass(person: Person)
+    fun insertPerson(person: Person)
 
     @Delete
-    fun deleteClass(person: Person)
+    fun deletePerson(person: Person)
 
-    @Query("Select * from classTable")
+    @Query("Select * from peopleTable")
     fun getAllPeople(): LiveData<List<Person>>
 
 }

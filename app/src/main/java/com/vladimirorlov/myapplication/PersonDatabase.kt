@@ -5,17 +5,17 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = arrayOf(Note::class), version = 1, exportSchema = false)
-abstract class ClassDatabase : RoomDatabase() {
+@Database(entities = [Person::class], version = 1, exportSchema = false)
+abstract class PersonDatabase : RoomDatabase() {
 
-    abstract fun getNotesDao(): ClassDao
+    abstract fun getNotesDao(): PeopleDao
 
     companion object{
-        fun getDatabase(context: Context):ClassDatabase {
+        fun getDatabase(context: Context):PersonDatabase {
             return Room.databaseBuilder(
                 context.applicationContext,
-                ClassDatabase::class.java,
-                "note_database"
+                PersonDatabase::class.java,
+                "people_database"
             ).build()
         }
     }

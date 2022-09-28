@@ -1,16 +1,20 @@
 package com.vladimirorlov.myapplication
 
-import android.app.Application
+import android.content.Context
 import androidx.lifecycle.LiveData
 
-class Repository(application: Application) {
-    private val dao = ClassDatabase.getDatabase(application).getNotesDao()
+class Repository(context: Context) {
+    private val dao = PersonDatabase.getDatabase(context).getNotesDao()
 
     fun getAllPeopleAsLiveData(): LiveData<List<Person>> {
         return dao.getAllPeople()
     }
 
     fun addPerson(person: Person) {
-        dao.insertClass(person)
+        dao.insertPerson(person)
+    }
+
+    fun deletePerson(person: Person) {
+        dao.deletePerson(person)
     }
 }

@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".ClassFragment">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,18 +11,18 @@
         android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/fragment_class_image"
+            android:id="@+id/fragment_person_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:src="@drawable/dk" />
 
         <TextView
-            android:id="@+id/fragment_class_details"
+            android:id="@+id/fragment_person_details"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="className"
+            android:text="personName"
             android:textStyle="bold" />
 
         <TextView
@@ -33,7 +32,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center|top"
             android:padding="20dp"
-            android:text="here you can write about class" />
+            android:text="write about class" />
 
     </LinearLayout>
 

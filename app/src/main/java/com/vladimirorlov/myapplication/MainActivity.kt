@@ -6,7 +6,7 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.concurrent.thread
 
-// object = static like in java (live all time at app)
+
 class MainActivity : AppCompatActivity() {
 
     lateinit var repository: Repository
@@ -15,13 +15,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        repository = Repository(application)
+        repository = Repository(this)
         setButtonClickListener()
     }
 
     private fun setButtonClickListener() {
         val button = findViewById<Button>(R.id.add_button)
-        val input = findViewById<EditText>(R.id.item_class_input)
+        val input = findViewById<EditText>(R.id.item_name_input)
         button.setOnClickListener {
             val radioGroup = findViewById<RadioGroup>(R.id.radioItemSelect)
             val checkedId = radioGroup.checkedRadioButtonId
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun isInputValid(): Boolean {
-        val input = findViewById<EditText>(R.id.item_class_input)
+        val input = findViewById<EditText>(R.id.item_name_input)
         if (input.text.contains("[0-9]+?-?|/D[a-zA-Z]{3,}$[0-9]".toRegex()) || input.text.isNullOrEmpty()) {
             return false
         }
@@ -69,5 +69,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
 
 
